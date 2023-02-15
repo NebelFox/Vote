@@ -39,6 +39,12 @@ end
 -- end
 
 -- misc
+function utils.set(t, values)
+    for k, v in pairs(values) do
+        t[k] = v
+    end
+end
+
 function utils.inside (object, x, y)
     local bounds = object.contentBounds
     return x <= bounds.xMax and x >= bounds.xMin and y <= bounds.yMax and y >= bounds.yMin
