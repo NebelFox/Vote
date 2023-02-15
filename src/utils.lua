@@ -1,7 +1,5 @@
 local string_len, string_sub, string_find = string.len, string.sub, string.find
 
--- local theme = require "src.theme"
-
 local utils = {}
 
 -- converters
@@ -25,18 +23,6 @@ function utils.convert.str2table (s)
     end
     return t
 end
-
--- coloring shorthands
--- utils.color = {}
--- function utils.color.fill (object, colorkey)
---     object:setFillColor (unpack (theme[colorkey]))
--- end
--- function utils.color.stroke (object, colorkey)
---     object:setStrokeColor (unpack (theme[colorkey]))
--- end
--- function utils.color.background (colorkey)
---     display.setDefault ("background", unpack (theme[colorkey]))
--- end
 
 -- misc
 function utils.set(t, values)
