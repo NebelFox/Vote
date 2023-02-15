@@ -21,8 +21,8 @@ function Voting.init(self, args)
     self._text.anchorY = 0
     self._text.anchorX = 0.5
 
-    self._accept = utils.createButton(self._group, args.width / 4, args.height / 2, args.width / 4, args.width / 4, "ACCEPT", 60, 10, nil, nil, {0, 1 ,0})
-    self._decline = utils.createButton(self._group, (args.width / 4) * 3, args.height / 2, args.width / 4, args.width / 4, "DECLINE", 60, 10, nil, nil, {1, 0, 0})
+    self._accept = utils.createButton(self._group, args.width / 4, args.height / 2, args.width / 3, args.width / 4, "ACCEPT", 60, 10, nil, nil, {0, 1 ,0})
+    self._decline = utils.createButton(self._group, (args.width / 4) * 3, args.height / 2, args.width / 3, args.width / 4, "DECLINE", 60, 10, nil, nil, {1, 0, 0})
 
     self._accept:addEventListener('touch', self:_makeVoteListener(true))
     self._decline:addEventListener('touch', self:_makeVoteListener(false))
