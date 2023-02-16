@@ -49,7 +49,7 @@ function Voting._vote(self, decision)
     if(#self._votes < self._maxVotes) then
         self._votes[#self._votes + 1] = decision
         self:_updateText()
-        vibrate()
+        vibrate("impact", "light")
         self:shuffle()
         if (#self._votes == self._maxVotes) then
             self._onComplete(self:_get())
@@ -61,8 +61,7 @@ function Voting.undo(self)
     if(#self._votes > 0) then
         table.remove(self._votes, #self._votes)
         self:_updateText()
-        vibrate()
-        vibrate()
+        vibrate("notification", "warning")
         self:shuffle()
     end
 end
