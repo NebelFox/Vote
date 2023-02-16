@@ -1,6 +1,8 @@
 local display, random, vibrate = display, math.random, system.vibrate
 
 local utils = require 'src.utils'
+local theme = require 'src.theme'
+local widgets = require 'src.widgets'
 
 local Voting = {}
 
@@ -17,28 +19,49 @@ function Voting.init(self, args)
     self._onComplete = args.onComplete or function(event) end
 
     self._text = display.newText({parent = self._group, text = "", x = args.width / 2, y = 100, fontSize = 100})
+    theme.fill(self._text, "foreground")
     self:_updateText()
     self._text.anchorY = 0
     self._text.anchorX = 0.5
 
-    self._accept = utils.createButton(self._group, args.width / 4, args.height / 2, args.width / 3, args.width / 4, "ACCEPT", 60, 10, nil, nil, {0, 1 ,0})
-    self._decline = utils.createButton(self._group, (args.width / 4) * 3, args.height / 2, args.width / 3, args.width / 4, "DECLINE", 60, 10, nil, nil, {1, 0, 0})
+    self._accept = widgets.Button({
+        parent = self._group, 
+        x = args.width / 4, 
+        y = args.height / 2, 
+        width = args.width / 2.5, 
+        height = args.width / 4, 
+        text = "ACCEPT", 
+        fontSize = 60, 
+        cornerRadius = 10, 
+        textColorKey = "positive",
+        onTouchEnded = function() self:_vote(true) end
+    })
+    self._decline = widgets.Button({
+        parent = self._group, 
+        x = (args.width / 4) * 3, 
+        y = args.height / 2, 
+        width = args.width / 2.5, 
+        height = args.width / 4, 
+        text = "DECLINE", 
+        fontSize = 60, 
+        cornerRadius = 10, 
+        textColorKey = "negative",
+        onTouchEnded = function() self:_vote(false) end
+    })
 
-    self._accept:addEventListener('touch', self:_makeVoteListener(true))
-    self._decline:addEventListener('touch', self:_makeVoteListener(false))
     self:shuffle()
 
-    self._undoButton = utils.createButton(self._group, args.width / 2, args.height * 0.8, 
-        args.width / 3, args.width / 5, "UNDO", 60, 10)
-    self._undoButton:addEventListener('tap', function (event) self:undo() end)
-end
-
-function Voting._makeVoteListener(self, decision)
-    return function(event)
-        if(event.phase == 'ended') then
-            self:_vote(decision)
-        end
-    end
+    self._undoButton = widgets.Button({
+        parent = self._group, 
+        x = args.width / 2, 
+        y = args.height * 0.8, 
+        width = args.width / 3, 
+        height = args.width / 5, 
+        text = "UNDO", 
+        fontSize = 60, 
+        cornerRadius = 10,
+        onTap = function (event) self:undo() end
+    })
 end
 
 function Voting._updateText(self)
@@ -79,9 +102,9 @@ end
 
 function Voting.shuffle(self)
     if (random(0, 1) == 1) then
-        local acceptX = self._accept.x
-        self._accept.x = self._decline.x
-        self._decline.x = acceptX
+        local acceptX = self._accept:getPos()
+        self._accept:setPos(self._decline:getPos())
+        self._decline:setPos(acceptX)
     end
 end
 
