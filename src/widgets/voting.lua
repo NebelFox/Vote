@@ -18,7 +18,7 @@ function Voting.init(self, args)
 
     self._onComplete = args.onComplete or function(event) end
 
-    self._text = display.newText({parent = self._group, text = "", x = args.width / 2, y = 100, fontSize = 100})
+    self._text = display.newText({parent = self._group, text = "", x = args.width / 2, y = args.height * 0.15, fontSize = 100})
     theme.fill(self._text, "foreground")
     self:_updateText()
     self._text.anchorY = 0
