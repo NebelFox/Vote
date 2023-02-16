@@ -1,6 +1,8 @@
 local display, random = display, math.random
 
 local utils = require 'src.utils'
+local widgets = require 'src.widgets'
+local theme = require 'src.theme'
 
 local NumberSelector = {}
 
@@ -22,23 +24,39 @@ function NumberSelector.init(self, args)
     self._step = args.step or 1
 
     self._text = display.newText({parent = self._group, text = "", -args.padding, 0, fontSize = args.size * 2})
+    theme.fill(self._text, "foreground")
     self:_updateText()
     self._text.anchorY = 0.5
     self._text.anchorX = 1
 
-    self._increment = utils.createButton(self._group, args.size , -(args.size + args.padding) / 2, args.size, args.size, "+", args.size * 0.75, args.padding, 0, 1)
-    self._decrement = utils.createButton(self._group, args.size, (args.size + args.padding) / 2, args.size, args.size, "-", args.size * 0.75, args.padding, 0, 0)
-
-    self._increment:addEventListener('touch', self:_makeListener(1))
-    self._decrement:addEventListener('touch', self:_makeListener(-1))
-end
-
-function NumberSelector._makeListener(self, delta)
-    return function(event)
-        if (event.phase == 'ended') then
-            self:_update(delta)
-        end
-    end
+    self._increment = widgets.Button({
+        parent = self._group, 
+        x = args.size, 
+        y = -(args.size + args.padding) / 2, 
+        width = args.size, 
+        height = args.size, 
+        text = "+", 
+        fontSize = args.size * 0.75, 
+        cornerRadius = args.padding, 
+        anchorX = 0, 
+        anchorY = 1,
+        textColorKey = "foreground",
+        onTouchEnded = function() self:_update(1) end
+    })
+    self._decrement = widgets.Button({
+        parent = self._group, 
+        x = args.size, 
+        y = (args.size + args.padding) / 2, 
+        width = args.size, 
+        height = args.size, 
+        text = "-", 
+        fontSize = args.size * 0.75, 
+        cornerRadius = args.padding, 
+        anchorX = 0, 
+        anchorY = 0,
+        textColorKey = "foreground",
+        onTouchEnded = function() self:_update(-1) end
+    })
 end
 
 function NumberSelector._updateText(self)
@@ -58,10 +76,8 @@ function NumberSelector.get(self)
 end
 
 function NumberSelector.destroy(self)
-    display.remove(self._increment)
-    self._increment = nil
-    display.remove(self._decrement)
-    self._decrement = nil
+    self._increment:destroy()
+    self._decrement:destroy()
     display.remove(self._text)
     self._text = nil
 end
