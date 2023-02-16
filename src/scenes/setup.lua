@@ -36,11 +36,24 @@ function scene:create(event)
         padding = 10
     })
 
-    local button = utils.createButton(sceneGroup, WIDTH / 2, HEIGHT * 0.75, WIDTH / 3, WIDTH / 6, "START", 60, 10)
-
-    button:addEventListener('tap', function(event)
-        composer.gotoScene('src.scenes.voting', {params = {n = selector:get()}})
-    end)
+    local button = widgets.Button({
+        parent = sceneGroup, 
+        x = WIDTH / 2, 
+        y = HEIGHT * 0.75, 
+        width = WIDTH / 3, 
+        height = WIDTH / 6, 
+        text = "START", 
+        fontSize = 60, 
+        cornerRadius = 10,
+        onTap = function()
+            composer.gotoScene(
+                'src.scenes.voting', 
+                {params = {
+                    n = selector:get()
+                }}
+            ) 
+        end
+    })
 end
  
  
