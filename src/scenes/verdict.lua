@@ -16,7 +16,6 @@ local CENTERY = display.contentCenterY
 -- the scene is removed entirely (not recycled) via "composer.removeScene()"
 -- -----------------------------------------------------------------------------------
 
-local voter
 local accepted
 local declined
 
@@ -31,6 +30,7 @@ function scene:create(event)
     accepted = display.newText({parent = sceneGroup, x = CENTERX, text = "", fontSize = 100})
     accepted.anchorX = 0.5
     accepted.anchorY = 0.5
+
     declined = display.newText({parent = sceneGroup, x = CENTERX, text = "", fontSize = 100})
     declined.anchorX = 0.5
     declined.anchorY = 0.5
@@ -60,17 +60,17 @@ function scene:show(event)
         accepted.text = ("%s accepted"):format(a)
         declined.text = ("%s declined"):format(d)
         if (a > d) then
-            accepted:setFillColor(0, 1, 0)
+            theme.fill(accepted, "positive")
             accepted.size = 150
             accepted.y = HEIGHT * 0.4
-            declined:setFillColor(0.3, 0.3, 0.3)
+            theme.fill(declined, "secondary")
             declined.size = 100
             declined.y = HEIGHT * 0.5
         else
-            accepted:setFillColor(0.3, 0.3, 0.3)
+            theme.fill(accepted, "secondary")
             accepted.size = 100
             accepted.y = HEIGHT * 0.5
-            declined:setFillColor(1, 0, 0)
+            theme.fill(declined, "negative")
             declined.size = 150
             declined.y = HEIGHT * 0.4
         end
