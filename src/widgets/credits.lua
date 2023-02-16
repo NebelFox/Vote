@@ -5,7 +5,7 @@ local Credits = {}
 
 function Credits.init(self, args)
     local text = display.newText({parent = args.parent, text = args.text})
-    utils.set(text, {anchorX = 0.5, x = display.contentWidth / 2, anchorY = 1, y = display.contentHeight * 0.98})
+    utils.set(text, {anchorX = 0.5, x = display.actualContentWidth / 2, anchorY = 1, y = display.actualContentHeight * 0.98})
     theme.fill(text, "secondary")
 
     local url = args.url

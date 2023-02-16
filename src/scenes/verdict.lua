@@ -7,10 +7,10 @@ local theme = require 'src.theme'
 
 -- local display = display
 
-local WIDTH = display.contentWidth
-local HEIGHT = display.contentHeight
-local CENTERX = display.contentCenterX
-local CENTERY = display.contentCenterY
+local WIDTH = display.actualContentWidth
+local HEIGHT = display.actualContentHeight
+local CENTERX = WIDTH * 0.5
+local CENTERY = HEIGHT * 0.5
  
 -- -----------------------------------------------------------------------------------
 -- Code outside of the scene event functions below will only be executed ONCE unless
