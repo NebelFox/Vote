@@ -35,14 +35,20 @@ function scene:create(event)
     declined.anchorX = 0.5
     declined.anchorY = 0.5
 
-    local restart = utils.createButton(sceneGroup, CENTERX, HEIGHT * 0.8, WIDTH / 3, WIDTH / 6, "RESTART", 60, 10)
-
-    restart:addEventListener('touch', function(event)
-        if (event.phase == 'ended') then
+    local restart = widgets.Button({
+        parent = sceneGroup, 
+        x = CENTERX, 
+        y = HEIGHT * 0.8, 
+        width = WIDTH / 3, 
+        height = WIDTH / 6, 
+        text = "RESTART", 
+        fontSize = 60, 
+        cornerRadius = 10,
+        textColorKey = "foreground",
+        onTouchEnded = function()
             composer.gotoScene('src.scenes.setup')
         end
-    end)
-
+    })
 end
  
 -- show()
