@@ -18,8 +18,7 @@ theme.background("background")
 widgets.Credits({
     parent = display.getCurrentStage(),
     text = 'made by @nebelfox',
-    url = 'https://github.com/NebelFox/Vote#readme',
-    alpha = 0.2
+    url = 'https://github.com/NebelFox/Vote#readme'
 })
 
 composer.gotoScene 'src.scenes.setup'

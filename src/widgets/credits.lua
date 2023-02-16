@@ -1,10 +1,12 @@
 local utils = require 'src.utils'
+local theme = require 'src.theme'
 
 local Credits = {}
 
 function Credits.init(self, args)
     local text = display.newText({parent = args.parent, text = args.text})
     utils.set(text, {anchorX = 0.5, x = display.contentWidth / 2, anchorY = 1, y = display.contentHeight * 0.98, alpha = args.alpha})
+    theme.fill(text, "secondary")
 
     local url = args.url
 
