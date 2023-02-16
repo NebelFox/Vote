@@ -1,0 +1,8 @@
+{
+    "background": "#000000",
+    "foreground": "#FFFFFF",
+    "highlight": "#1A1A1A",
+    "secondary": "#4C4C4C",
+    "positive": "#00FF00",
+    "negative": "#FF0000"
+}
