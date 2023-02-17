@@ -7,7 +7,7 @@ local composer = require "composer"
 local utils = require "utils"
 
 -- setup file
-local names = json.decodeFile(system.pathForFile("assets/widgets-config.json", system.ResourceDirectory))
+local names = json.decodeFile(system.pathForFile("assets/widgets.json", system.ResourceDirectory))
 
 -- module table
 local widgets = {}
