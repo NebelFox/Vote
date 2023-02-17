@@ -54,7 +54,7 @@ function Voting.init(self, args)
     self._undoButton = widgets.Button({
         parent = self._group, 
         x = args.width / 2, 
-        y = args.height * 0.8, 
+        y = args.height * 0.75, 
         width = args.width / 3, 
         height = args.width / 5, 
         text = "UNDO", 

@@ -42,8 +42,8 @@ function scene:create(event)
     local restart = widgets.Button({
         parent = sceneGroup, 
         x = CENTERX, 
-        y = HEIGHT * 0.8, 
-        width = WIDTH / 3, 
+        y = HEIGHT * 0.75, 
+        width = WIDTH / 2.5, 
         height = WIDTH / 6, 
         text = "RESTART", 
         fontSize = 60, 
