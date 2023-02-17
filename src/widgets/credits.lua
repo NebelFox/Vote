@@ -1,5 +1,5 @@
-local utils = require 'src.utils'
-local theme = require 'src.theme'
+local utils = require 'utils'
+local theme = require 'theme'
 
 local Credits = {}
 

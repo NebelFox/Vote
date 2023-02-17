@@ -9,7 +9,7 @@ local themesJsonFile = system.pathForFile("assets/theme.json", system.ResourceDi
 local values = {}
 
 function theme.init()
-    local hex2rgb = require("src.utils").convert.hex2rgb
+    local hex2rgb = require("utils").convert.hex2rgb
     for key, value in pairs(json.decodeFile(themesJsonFile)) do
         -- print(value, sub(value, 0, 1), sub(value, 2))
         if(sub(value, 0, 1) == '#') then

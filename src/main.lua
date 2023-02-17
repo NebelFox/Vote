@@ -8,9 +8,9 @@
 
 local composer = require("composer")
 
-local widgets = require 'src.widgets'
+local widgets = require 'widgets'
 widgets.init()
-local theme = require 'src.theme'
+local theme = require 'theme'
 theme.init()
 
 theme.background("background")
@@ -34,4 +34,4 @@ OPTIONS = {
     time = TIME
 }
 
-composer.gotoScene 'src.scenes.setup'
+composer.gotoScene 'scenes.setup'

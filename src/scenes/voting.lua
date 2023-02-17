@@ -1,7 +1,7 @@
 local composer = require 'composer'
 local scene = composer.newScene()
 
-local widgets = require 'src.widgets'
+local widgets = require 'widgets'
  
 -- -----------------------------------------------------------------------------------
 -- Code outside of the scene event functions below will only be executed ONCE unless
@@ -19,7 +19,7 @@ function scene:create(event)
     local sceneGroup = self.view
 
     function onComplete(event)
-        composer.gotoScene('src.scenes.verdict', {
+        composer.gotoScene('scenes.verdict', {
             params = event,
             effect = EFFECT,
             time = TIME

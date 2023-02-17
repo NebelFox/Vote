@@ -1,9 +1,9 @@
 local composer = require 'composer'
 local scene = composer.newScene()
 
-local widgets = require 'src.widgets'
-local utils = require 'src.utils'
-local theme = require 'src.theme'
+local widgets = require 'widgets'
+local utils = require 'utils'
+local theme = require 'theme'
  
 -- -----------------------------------------------------------------------------------
 -- Code outside of the scene event functions below will only be executed ONCE unless
@@ -50,7 +50,7 @@ function scene:create(event)
         cornerRadius = 10,
         textColorKey = "foreground",
         onTouchEnded = function()
-            composer.gotoScene('src.scenes.setup', OPTIONS)
+            composer.gotoScene('scenes.setup', OPTIONS)
         end
     })
 end

@@ -7,7 +7,7 @@ local json = require "json"
 local composer = require "composer"
 -- local settings = require "src.settings"
 -- local theme = require "src.theme"
-local utils = require "src.utils"
+local utils = require "utils"
 
 -- setup file
 local configs = json.decodeFile(system.pathForFile("assets/widgets-config.json", system.ResourceDirectory))
@@ -38,12 +38,12 @@ end
 -- registers all the components
 -- from the linked file
 function widgets.init()
-    local Widget = require "src.widgets.widget"
+    local Widget = require "widgets.widget"
     for filename, config in pairs(configs) do
         print("registering " .. filename .. " component")
         components[utils.convert.snake2pascal(filename)] = Widget(
             filename,
-            require("src.widgets." .. filename),
+            require("widgets." .. filename),
             config
         )
     end

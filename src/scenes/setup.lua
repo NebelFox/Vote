@@ -1,8 +1,8 @@
 local composer = require 'composer'
 local scene = composer.newScene()
 
-local widgets = require 'src.widgets'
-local utils = require 'src.utils'
+local widgets = require 'widgets'
+local utils = require 'utils'
  
 -- -----------------------------------------------------------------------------------
 -- Code outside of the scene event functions below will only be executed ONCE unless
@@ -40,7 +40,7 @@ function scene:create(event)
         cornerRadius = 10,
         onTouchEnded = function()
             composer.gotoScene(
-                'src.scenes.voting', 
+                'scenes.voting', 
                 {
                     params = {
                         n = selector:get()

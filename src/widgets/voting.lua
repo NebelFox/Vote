@@ -1,8 +1,8 @@
 local display, random, vibrate = display, math.random, system.vibrate
 
-local utils = require 'src.utils'
-local theme = require 'src.theme'
-local widgets = require 'src.widgets'
+local utils = require 'utils'
+local theme = require 'theme'
+local widgets = require 'widgets'
 
 local Voting = {}
 

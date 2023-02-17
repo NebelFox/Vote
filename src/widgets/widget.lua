@@ -1,7 +1,7 @@
 -- widget.lua
 local function silence(self) end
-local widgets = require "src.widgets"
-local utils = require "src.utils"
+local widgets = require "widgets"
+local utils = require "utils"
 local timer_performWithDelay = timer.performWithDelay
 
 local Widget = {

@@ -1,8 +1,8 @@
 local display, random = display, math.random
 
-local utils = require 'src.utils'
-local widgets = require 'src.widgets'
-local theme = require 'src.theme'
+local utils = require 'utils'
+local widgets = require 'widgets'
+local theme = require 'theme'
 
 local NumberSelector = {}
 
