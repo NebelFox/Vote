@@ -21,8 +21,8 @@ function scene:create(event)
 
     selector = widgets.NumberSelector({
         parent = sceneGroup,
-        x = WIDTH / 2,
-        y = HEIGHT / 2,
+        x = CENTERX,
+        y = HEIGHT * 0.5,
         min = 4,
         max = 11,
         size = 200,
@@ -31,7 +31,7 @@ function scene:create(event)
 
     local button = widgets.Button({
         parent = sceneGroup, 
-        x = WIDTH / 2, 
+        x = CENTERX, 
         y = HEIGHT * 0.75, 
         width = WIDTH / 3, 
         height = WIDTH / 6, 
