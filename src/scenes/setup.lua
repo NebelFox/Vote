@@ -38,7 +38,7 @@ function scene:create(event)
         text = "START", 
         fontSize = 60, 
         cornerRadius = 10,
-        onTap = function()
+        onTouchEnded = function()
             composer.gotoScene(
                 'src.scenes.voting', 
                 {params = {
