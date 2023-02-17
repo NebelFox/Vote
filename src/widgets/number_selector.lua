@@ -41,7 +41,7 @@ function NumberSelector.init(self, args)
         anchorX = 0, 
         anchorY = 1,
         textColorKey = "foreground",
-        onTouchEnded = function() self:_update(1) end
+        onTouchEndedInside = function() self:_update(1) end
     })
     self._decrement = widgets.Button({
         parent = self._group, 
@@ -55,7 +55,7 @@ function NumberSelector.init(self, args)
         anchorX = 0, 
         anchorY = 0,
         textColorKey = "foreground",
-        onTouchEnded = function() self:_update(-1) end
+        onTouchEndedInside = function() self:_update(-1) end
     })
 end
 

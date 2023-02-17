@@ -30,10 +30,10 @@ function Button.init(self, args)
         end
     end)
 
-    if args.onTouchEnded then
-        local listener = args.onTouchEnded
+    if args.onTouchEndedInside then
+        local listener = args.onTouchEndedInside
         self._group:addEventListener('touch', function(event)
-            if (event.phase == 'ended') then
+            if (event.phase == 'ended' and utils.inside(self._group, event.x, event.y)) then
                 listener()
             end
         end)

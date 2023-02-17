@@ -38,7 +38,7 @@ function scene:create(event)
         text = "START", 
         fontSize = 60, 
         cornerRadius = 10,
-        onTouchEnded = function()
+        onTouchEndedInside = function()
             composer.gotoScene(
                 'scenes.voting', 
                 {

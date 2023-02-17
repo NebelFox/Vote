@@ -34,7 +34,7 @@ function Voting.init(self, args)
         fontSize = 60, 
         cornerRadius = 10, 
         textColorKey = "positive",
-        onTouchEnded = function() self:_vote(true) end
+        onTouchEndedInside = function() self:_vote(true) end
     })
     self._decline = widgets.Button({
         parent = self._group, 
@@ -46,7 +46,7 @@ function Voting.init(self, args)
         fontSize = 60, 
         cornerRadius = 10, 
         textColorKey = "negative",
-        onTouchEnded = function() self:_vote(false) end
+        onTouchEndedInside = function() self:_vote(false) end
     })
 
     self:shuffle()
@@ -60,7 +60,7 @@ function Voting.init(self, args)
         text = "UNDO", 
         fontSize = 60, 
         cornerRadius = 10,
-        onTap = function (event) self:undo() end
+        onTouchEndedInside = function (event) self:undo() end
     })
 end
 

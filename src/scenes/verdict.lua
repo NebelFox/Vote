@@ -49,7 +49,7 @@ function scene:create(event)
         fontSize = 60, 
         cornerRadius = 10,
         textColorKey = "foreground",
-        onTouchEnded = function()
+        onTouchEndedInside = function()
             composer.gotoScene('scenes.setup', OPTIONS)
         end
     })
