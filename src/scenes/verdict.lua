@@ -50,7 +50,7 @@ function scene:create(event)
         cornerRadius = 10,
         textColorKey = "foreground",
         onTouchEnded = function()
-            composer.gotoScene('src.scenes.setup')
+            composer.gotoScene('src.scenes.setup', OPTIONS)
         end
     })
 end
@@ -61,13 +61,14 @@ function scene:show(event)
     local sceneGroup = self.view
     local phase = event.phase
 
-    local a, d = event.params.accepted, event.params.declined
-
+    
     if (phase == "will") then
         -- Code here runs when the scene is still off screen (but is about to come on screen)
         local prevScene = composer.getSceneName("previous")
         composer.removeScene(prevScene, true)
 
+        local a, d = event.params.accepted, event.params.declined
+        
         accepted.text = ("%s accepted"):format(a)
         declined.text = ("%s declined"):format(d)
         if (a > d) then
@@ -84,13 +85,6 @@ function scene:show(event)
             theme.fill(declined, "negative")
             declined.size = 150
             declined.y = HEIGHT * 0.4
-        end
-    elseif (phase == "did") then
-        -- Code here runs when the scene is entirely on screen
-        if (a > d) then
-            system.vibrate("notification", "success")
-        else
-            system.vibrate("notification", "error")
         end
     end
 end

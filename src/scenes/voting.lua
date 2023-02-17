@@ -19,7 +19,11 @@ function scene:create(event)
     local sceneGroup = self.view
 
     function onComplete(event)
-        composer.gotoScene('src.scenes.verdict', {params = event})
+        composer.gotoScene('src.scenes.verdict', {
+            params = event,
+            effect = EFFECT,
+            time = TIME
+        })
     end
 
     voting = widgets.Voting({

@@ -26,4 +26,12 @@ widgets.Credits({
     url = 'https://github.com/NebelFox/Vote#readme'
 })
 
+EFFECT = 'fade'
+TIME = 200
+
+OPTIONS = {
+    effect = EFFECT,
+    time = TIME
+}
+
 composer.gotoScene 'src.scenes.setup'

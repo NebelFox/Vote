@@ -41,9 +41,13 @@ function scene:create(event)
         onTouchEnded = function()
             composer.gotoScene(
                 'src.scenes.voting', 
-                {params = {
-                    n = selector:get()
-                }}
+                {
+                    params = {
+                        n = selector:get()
+                    },
+                    effect = EFFECT,
+                    time = TIME
+                }
             ) 
         end
     })
