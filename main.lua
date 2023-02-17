@@ -15,6 +15,11 @@ theme.init()
 
 theme.background("background")
 
+WIDTH = display.contentWidth
+HEIGHT = display.contentHeight
+CENTERX = WIDTH * 0.5
+CENTERY = HEIGHT * 0.5
+
 widgets.Credits({
     parent = display.getCurrentStage(),
     text = 'made by @nebelfox',

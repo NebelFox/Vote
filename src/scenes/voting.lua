@@ -2,13 +2,6 @@ local composer = require 'composer'
 local scene = composer.newScene()
 
 local widgets = require 'src.widgets'
-
--- local display = display
-
-local WIDTH = display.actualContentWidth
-local HEIGHT = display.actualContentHeight
-local CENTERX = WIDTH * 0.5
-local CENTERY = HEIGHT * 0.5
  
 -- -----------------------------------------------------------------------------------
 -- Code outside of the scene event functions below will only be executed ONCE unless
@@ -34,7 +27,8 @@ function scene:create(event)
         width = WIDTH, 
         height = HEIGHT,
         maxVotes = event.params.n,
-        onComplete = onComplete})
+        onComplete = onComplete
+    })
 end
  
  

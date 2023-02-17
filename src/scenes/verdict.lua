@@ -4,13 +4,6 @@ local scene = composer.newScene()
 local widgets = require 'src.widgets'
 local utils = require 'src.utils'
 local theme = require 'src.theme'
-
--- local display = display
-
-local WIDTH = display.actualContentWidth
-local HEIGHT = display.actualContentHeight
-local CENTERX = WIDTH * 0.5
-local CENTERY = HEIGHT * 0.5
  
 -- -----------------------------------------------------------------------------------
 -- Code outside of the scene event functions below will only be executed ONCE unless
@@ -28,11 +21,21 @@ local declined
 function scene:create(event)
     local sceneGroup = self.view
 
-    accepted = display.newText({parent = sceneGroup, x = CENTERX, text = "", fontSize = 100})
+    accepted = display.newText({
+        parent = sceneGroup, 
+        x = CENTERX, 
+        text = "", 
+        fontSize = 100
+    })
     accepted.anchorX = 0.5
     accepted.anchorY = 0.5
 
-    declined = display.newText({parent = sceneGroup, x = CENTERX, text = "", fontSize = 100})
+    declined = display.newText({
+        parent = sceneGroup, 
+        x = CENTERX, 
+        text = "", 
+        fontSize = 100
+    })
     declined.anchorX = 0.5
     declined.anchorY = 0.5
 
