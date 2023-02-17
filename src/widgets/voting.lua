@@ -84,7 +84,7 @@ function Voting.undo(self)
     if(#self._votes > 0) then
         table.remove(self._votes, #self._votes)
         self:_updateText()
-        vibrate("notification", "warning")
+        vibrate("impact", "heavy")
         self:shuffle()
     end
 end
