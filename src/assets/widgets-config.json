@@ -1,6 +1,6 @@
-{
-    "button": {},
-    "voting": {},
-    "number_selector": {},
-    "credits": {}
-}
+[
+    "button",
+    "voting",
+    "number_selector",
+    "credits"
+]

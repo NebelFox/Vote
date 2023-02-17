@@ -1,4 +1,4 @@
-local string_len, string_sub, string_find = string.len, string.sub, string.find
+local string_sub = string.sub
 
 local utils = {}
 
@@ -16,14 +16,6 @@ function utils.convert.hex2rgb(hex)
     return rgb
 end
 
-function utils.convert.str2table(s)
-    local t = {}
-    for i=1, string_len(s) do
-        t[i] = string_sub(s, i, i)
-    end
-    return t
-end
-
 -- misc
 function utils.set(t, values)
     for k, v in pairs(values) do
@@ -34,77 +26,6 @@ end
 function utils.inside(object, x, y)
     local bounds = object.contentBounds
     return x <= bounds.xMax and x >= bounds.xMin and y <= bounds.yMax and y >= bounds.yMin
-end
-
-function utils.split(s, separator)
-    local separator = separator or " "
-    tokens = {}
-    for match in (s..separator):gmatch("(.-)"..separator) do
-        if match ~= "" then table.insert(tokens, match) end
-    end
-    return tokens
-end
-
-utils.table = {}
-function utils.table.indices(n)
-    local t = {}
-    for i=1, n do
-        t[i] = i
-    end
-    return t
-end
-function utils.table.iclear(t)
-    for i=1, #t do
-        t[i] = nil
-    end
-end
-function utils.table.clear(t)
-    for key in pairs(t) do
-        t[key] = nil
-    end
-end
-function utils.table.fill(t, start, count, value)
-    local f =(type(value) ~= 'function') and function() return value end or value
-    for i=start, start+count-1 do
-        t[i] = f()
-    end
-end
-function utils.table.extend(t, count, value)
-    local f =(type(value) ~= 'function') and function() return value end or value
-    for i=1, count do
-        t[#t+1] = f()
-    end
-end
-
-function utils.table.print(t, title)
-    local title = title or ""
-    local parts = {}
-    local numberType = 'number'
-    local stringType = 'string'
-    local tableType = 'table'
-    local separator = ", "
-    for k, v in pairs(t) do
-        parts[#parts+1] = 
-           (type(k) ~= numberType
-                and(tostring(k) .. ":")
-            or "") 
-            ..
-           (type(v) == stringType
-                and('"'..tostring(v)..'"')
-            -- or type(v) == tableType
-            --     and()
-            or tostring(v))
-    end
-    print(title .. "[" .. table.concat(parts, ", ") .. "]")
-end
-
-function utils.table.ifind(t, v)
-    for i=1, #t do
-        if(t[i] == v) then
-            return i
-        end
-    end
-    return nil
 end
 
 
